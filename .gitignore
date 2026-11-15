@@ -1,0 +1,8 @@
+# IDE configuration
+.idea/
+
+# Incomplete browser downloads
+*.crdownload
+
+# Large dataset archives (exceed GitHub 100MB file size limit)
+Processed_*_dataset.zip
