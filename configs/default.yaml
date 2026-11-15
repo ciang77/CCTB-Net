@@ -44,6 +44,7 @@ model:
   tcn_dilations: [1, 2, 4, 8]
   dropout: 0.10
   use_ctx: true
+  shuffle_ctx: false
   fusion: film                   # film | concat
   film_use_gamma: true
   film_use_beta: true

@@ -4,5 +4,20 @@
 # Incomplete browser downloads
 *.crdownload
 
-# Large dataset archives (exceed GitHub 100MB file size limit)
+# Large dataset archives and extracted raw data (exceed GitHub 100MB file size limit)
 Processed_*_dataset.zip
+Processed_*_dataset/
+
+# Generated data artifacts and experiment outputs
+data/
+outputs/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+.pytest_cache/
+
+Processed_Linux_dataset/
+Processed_Network_dataset/
+

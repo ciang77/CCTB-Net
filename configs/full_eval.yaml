@@ -5,9 +5,14 @@ project:
   seed: 42
   profile: full_eval
 
+data:
+  eval_max_samples: 1000000
+
 train:
   device: cuda
   amp: true
+  num_workers: 0
+  pin_memory: true
   batch_size: 512
   eval_batch_size: 1024
   epochs: 20
