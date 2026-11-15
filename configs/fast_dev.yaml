@@ -1,0 +1,26 @@
+_base_: default.yaml
+
+project:
+  name: cctb_net_fast_dev
+  seed: 42
+  profile: fast_dev
+
+data:
+  sample_frac: 0.01
+  linux_stride: 20
+  min_episode_flows: 200
+  cat_min_freq: 5
+  train_cap_per_class: 8000
+  epoch_samples: 16384
+  eval_max_samples: 16384
+
+train:
+  device: cuda
+  amp: true
+  batch_size: 256
+  eval_batch_size: 512
+  epochs: 1
+  patience: 2
+
+decision:
+  aci_window: 2000

@@ -1,0 +1,89 @@
+project:
+  name: cctb_net
+  seed: 42
+  profile: full_eval
+
+paths:
+  network_dir: Processed_Network_dataset/Processed_Network_dataset
+  linux_dir: Processed_Linux_dataset/Processed_Linux_dataset
+  data_root: data
+  output_root: outputs
+
+data:
+  sample_frac: 1.0
+  sample_seed: 42
+  linux_stride: 1
+  entity_key: host_pair          # host_pair | dst_ip | global
+  window_len: 16                 # L
+  ctx_bucket_sec: 5              # delta (seconds)
+  ctx_steps: 12                  # T (past 60s = 12 * 5s)
+  ctx_roll_sec: 60               # rolling mean window (seconds)
+  ctx_ewm_halflife_sec: 300      # EWMA half-life (seconds)
+  ctx_max_age_sec: 3600
+  protocol: P1                   # P1 (episode-blocked chronological) | P2 (global chronological)
+  split_ratios: [0.60, 0.10, 0.10, 0.20]  # Train, Val, Cal, Test
+  episode_bucket_sec: 60
+  min_episode_flows: 5000
+  embargo_sec: 60
+  cat_min_freq: 20
+  top_k_ports: 32
+  clip_quantile: 0.999
+  high_load_quantile: 0.90
+  train_cap_per_class: 250000
+  epoch_samples: 500000
+  eval_max_samples: 300000
+  minority_jitter_std: 0.05
+  minority_max_count: 5000
+
+model:
+  d_net: 64
+  d_ctx: 32
+  d_anom: 32
+  tcn_channels: 64
+  tcn_kernel: 3
+  tcn_dilations: [1, 2, 4, 8]
+  dropout: 0.10
+  use_ctx: true
+  fusion: film                   # film | concat
+  film_use_gamma: true
+  film_use_beta: true
+  film_multilayer: false
+  use_anomaly_branch: true
+  use_threat_branch: true
+
+loss:
+  lambda_cls: 1.0
+  lambda_bin: 0.5
+  lambda_sad: 0.1
+  lambda_cons: 0.1
+  logit_adjust_tau: 1.0
+  normal_pos_weight: 2.0
+  sad_eta: 1.0
+  sad_eps: 0.1
+
+train:
+  device: cuda
+  amp: true
+  batch_size: 512
+  eval_batch_size: 1024
+  epochs: 20
+  lr: 0.001
+  weight_decay: 0.0001
+  grad_clip: 1.0
+  patience: 5
+
+decision:
+  alpha: 0.05
+  eta: 0.005
+  aci_window: 20000
+  aci_num_bins: 4096
+  label_delay: 0
+  score_type: aps                # aps | lac
+  judge_type: jev_b              # jev_b | jev_a
+  num_load_strata: 5
+  z_low: -0.5
+  z_high: 2.0
+  cost_fn: 5.0
+  cost_fp: 1.0
+  cost_miscls: 1.5
+  defer_budget: 0.05

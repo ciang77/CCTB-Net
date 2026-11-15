@@ -1,0 +1,14 @@
+_base_: default.yaml
+
+project:
+  name: cctb_net_full_eval
+  seed: 42
+  profile: full_eval
+
+train:
+  device: cuda
+  amp: true
+  batch_size: 512
+  eval_batch_size: 1024
+  epochs: 20
+  patience: 5
