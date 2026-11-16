@@ -21,3 +21,5 @@ __pycache__/
 Processed_Linux_dataset/
 Processed_Network_dataset/
 
+# JeikCode user uploads (not project source)
+.jeikcode_store/
