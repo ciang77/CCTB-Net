@@ -8,9 +8,24 @@
 Processed_*_dataset.zip
 Processed_*_dataset/
 
-# Generated data artifacts and experiment outputs
-data/
-outputs/
+# Generated data artifacts and experiment outputs (keep lightweight metadata, best.pt, and summary tables for Colab)
+data/*
+!data/processed/
+data/processed/*
+!data/processed/full_eval/
+data/processed/full_eval/*
+!data/processed/full_eval/metadata.json
+
+outputs/*
+!outputs/summary_tables/
+!outputs/runs/
+outputs/runs/*
+!outputs/runs/cctb_net_full_eval/
+outputs/runs/cctb_net_full_eval/*
+!outputs/runs/cctb_net_full_eval/seed_42/
+outputs/runs/cctb_net_full_eval/seed_42/*
+!outputs/runs/cctb_net_full_eval/seed_42/best.pt
+!outputs/runs/cctb_net_full_eval/seed_42/metrics.json
 
 # Python
 __pycache__/
@@ -27,3 +42,7 @@ Processed_Network_dataset/
 # 论文稿件（仅本地保留，不上传远程）及 Word 临时锁文件
 基于上下文条件化时序建模的网络异常检测方法*.docx
 ~$*.docx
+
+# Colab efficiency bundle archive
+colab_efficiency_bundle.zip
+colab_efficiency_results.zip

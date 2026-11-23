@@ -1,0 +1,141 @@
+{
+  "num_parameters": 148167,
+  "model_size_mb_fp32": 0.565,
+  "gpu_device": "NVIDIA GeForce GTX 1650",
+  "latency_1m_flows": {
+    "backbone_gpu_sec": 19.01,
+    "aci_numba_sec": 1.219,
+    "jev_b_sec": 0.653,
+    "end_to_end_sec": 20.88,
+    "per_flow_ms": 0.0209,
+    "throughput_kflows_s": 47.89
+  },
+  "infer_sweep": [
+    {
+      "batch_size": 128,
+      "amp": true,
+      "flows": 5120,
+      "sec": 0.6946,
+      "throughput_kflows_s": 7.37,
+      "est_1m_sec": 135.66,
+      "peak_vram_mb": 16.73
+    },
+    {
+      "batch_size": 128,
+      "amp": false,
+      "flows": 5120,
+      "sec": 0.2863,
+      "throughput_kflows_s": 17.88,
+      "est_1m_sec": 55.92,
+      "peak_vram_mb": 17.19
+    },
+    {
+      "batch_size": 256,
+      "amp": true,
+      "flows": 10240,
+      "sec": 0.3539,
+      "throughput_kflows_s": 28.93,
+      "est_1m_sec": 34.56,
+      "peak_vram_mb": 22.57
+    },
+    {
+      "batch_size": 256,
+      "amp": false,
+      "flows": 10240,
+      "sec": 0.3011,
+      "throughput_kflows_s": 34.01,
+      "est_1m_sec": 29.4,
+      "peak_vram_mb": 22.87
+    },
+    {
+      "batch_size": 512,
+      "amp": true,
+      "flows": 20480,
+      "sec": 0.4655,
+      "throughput_kflows_s": 44.0,
+      "est_1m_sec": 22.73,
+      "peak_vram_mb": 34.39
+    },
+    {
+      "batch_size": 512,
+      "amp": false,
+      "flows": 20480,
+      "sec": 0.3556,
+      "throughput_kflows_s": 57.59,
+      "est_1m_sec": 17.36,
+      "peak_vram_mb": 34.21
+    },
+    {
+      "batch_size": 1024,
+      "amp": true,
+      "flows": 40960,
+      "sec": 0.7786,
+      "throughput_kflows_s": 52.61,
+      "est_1m_sec": 19.01,
+      "peak_vram_mb": 56.97
+    },
+    {
+      "batch_size": 1024,
+      "amp": false,
+      "flows": 40960,
+      "sec": 0.5506,
+      "throughput_kflows_s": 74.4,
+      "est_1m_sec": 13.44,
+      "peak_vram_mb": 57.46
+    },
+    {
+      "batch_size": 2048,
+      "amp": true,
+      "flows": 50000,
+      "sec": 0.8495,
+      "throughput_kflows_s": 58.86,
+      "est_1m_sec": 16.99,
+      "peak_vram_mb": 103.13
+    },
+    {
+      "batch_size": 2048,
+      "amp": false,
+      "flows": 50000,
+      "sec": 0.5991,
+      "throughput_kflows_s": 83.45,
+      "est_1m_sec": 11.98,
+      "peak_vram_mb": 97.39
+    }
+  ],
+  "vram_profiles": [
+    {
+      "label": "Infer\n(bs=1024, AMP)",
+      "mode": "infer",
+      "batch_size": 1024,
+      "amp": true,
+      "peak_vram_mb": 56.97
+    },
+    {
+      "label": "Train\n(bs=512, AMP)",
+      "mode": "train",
+      "batch_size": 512,
+      "amp": true,
+      "peak_vram_mb": 89.65
+    },
+    {
+      "label": "Train\n(bs=512, FP32)",
+      "mode": "train",
+      "batch_size": 512,
+      "amp": false,
+      "peak_vram_mb": 124.44
+    },
+    {
+      "label": "Train\n(bs=1024, AMP)",
+      "mode": "train",
+      "batch_size": 1024,
+      "amp": true,
+      "peak_vram_mb": 157.28
+    }
+  ],
+  "decision_backend": {
+    "n_test_flows": 1000000,
+    "aci_sec": 1.219,
+    "jev_sec": 0.653,
+    "decision_total_sec": 1.873
+  }
+}

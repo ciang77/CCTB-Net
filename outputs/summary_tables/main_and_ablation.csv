@@ -1,0 +1,8 @@
+variant,description,macro_f1,binary_f1,auroc_prob,auroc_anom,fpr_cons,fpr_select,fnr_select,high_load_normal_fpr,defer_rate,empirical_coverage,avg_set_size
+A0_full_cctb,CCTB-Net (Full: FiLM + TCN + Dual-Task + ACI + Jev-B),0.882,0.9997,0.9996,0.9998,0.0092,0.0054,0.0004,0.0032,0.0042,0.95,1.356
+A8_wo_aci_jev,w/o ACI + Jev (Argmax Baseline),0.8706,0.9996,0.9996,0.9998,0.0047,0.0047,0.0006,0.0059,0.0,,
+A11_jev_a,CCTB-Net + ACI + Jev-A (Bayesian CPT),0.8651,0.9996,0.9996,0.9998,0.0083,0.0083,0.0004,0.0043,0.0,0.95,1.356
+A1_wo_ctx_film,w/o Context & FiLM,0.9112,0.9994,0.9997,0.9999,0.0112,0.0105,0.0008,0.0155,0.0007,0.95,0.984
+A5_wo_dynamic_center,w/o Dynamic Center Anomaly Branch,0.8576,0.9994,0.9996,0.3887,0.0062,0.0046,0.001,0.0016,0.0137,0.95,1.225
+A7_wo_dual_cons,w/o Dual-Task Consistency Loss,0.8526,0.9962,0.9961,0.9991,0.0417,0.0311,0.0061,0.0841,0.0077,0.95,1.131
+C1_shuffled_ctx,Shuffled Context Control,0.897,0.9993,0.9998,0.9999,0.0107,0.0098,0.0009,0.0085,0.0008,0.95,1.015
