@@ -23,3 +23,7 @@ Processed_Network_dataset/
 
 # JeikCode user uploads (not project source)
 .jeikcode_store/
+
+# 论文稿件（仅本地保留，不上传远程）及 Word 临时锁文件
+基于上下文条件化时序建模的网络异常检测方法*.docx
+~$*.docx
